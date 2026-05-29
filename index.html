@@ -1,20 +1,20 @@
 <!DOCTYPE html>
-<html lang="ar" dir="ltr">
+<html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Restudio Calculator | JetBrains Mono</title>
+    <title>Restudio Calculator</title>
     <link rel="icon" type="image/x-icon" href="https://i.postimg.cc/02cSd2QF/restudio-profile.png">
-    <!-- math.js للتقييم الرياضي -->
+    <!-- math.js for robust math evaluation -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/12.2.1/math.min.js"></script>
 
-    <!-- Google Material Icons (أيقونات نظيفة) -->
+    <!-- Google Material Icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-    <!-- خط TINY5 من Google Fonts للشريط العلوي فقط -->
+    <!-- TINY5 font for top bar -->
     <link href="https://fonts.googleapis.com/css2?family=Tiny5&display=swap" rel="stylesheet">
 
-    <!-- JetBrains Mono font for calculator display and buttons -->
+    <!-- JetBrains Mono font -->
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
@@ -22,11 +22,11 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            user-select: none; /* تجنب التحديد العرضي */
+            user-select: none;
         }
 
         body {
-            background: #f1f3f7;  /* خلفية هادئة فاتحة */
+            background: #f1f3f7;
             font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
             min-height: 100vh;
             display: flex;
@@ -35,15 +35,14 @@
             padding-top: 0;
         }
 
-        /* ========== الشريط العلوي الأسود (مثل النسخة الأولى تماماً) ========== */
         .top-bar {
             position: sticky;
             top: 0;
             z-index: 1000;
             width: 100%;
             height: 64px;
-            background: #000000; /* أسود خالص */
-            border-bottom: 1px solid #222222; /* حد بسيط وثابت */
+            background: #000000;
+            border-bottom: 1px solid #222222;
             display: flex;
             align-items: center;
             justify-content: flex-start;
@@ -51,7 +50,6 @@
             gap: 14px;
         }
 
-        /* حاوية الشعار - بنفس الحجم الأصلي (150px عرض، 58px ارتفاع) */
         .logo-container {
             display: flex;
             align-items: center;
@@ -71,7 +69,6 @@
             object-fit: contain;
         }
 
-        /* كلمة Calculator بخط TINY5 (نفس النسخة الأولى) */
         .brand-text {
             font-family: 'Tiny5', 'Courier New', monospace;
             font-size: 1.8rem;
@@ -80,7 +77,6 @@
             line-height: 1;
         }
 
-        /* ========== حاسبة مع خط JetBrains Mono ========== */
         .main-content {
             width: 100%;
             display: flex;
@@ -99,7 +95,6 @@
             border: 1px solid #eef2f5;
         }
 
-        /* شاشة العرض - استخدام JetBrains Mono في كل النصوص الحسابية */
         .display-area {
             background: #f8fafd;
             border-radius: 20px;
@@ -137,7 +132,6 @@
             font-size: 1.5rem;
         }
 
-        /* شبكة الأزرار - خط JetBrains Mono للأزرار الرقمية والعمليات */
         .buttons-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -172,7 +166,6 @@
             border: 1px solid #e2e8f0;
             color: #0f172a;
             font-weight: 600;
-            font-family: 'JetBrains Mono', monospace;
         }
         .btn-number:hover {
             background: #f8fafc;
@@ -184,7 +177,6 @@
             color: #1e40af;
             font-weight: 700;
             border: 1px solid #cbdff2;
-            font-family: 'JetBrains Mono', monospace;
         }
         .btn-operator:hover {
             background: #e0e7ff;
@@ -202,7 +194,6 @@
             font-size: 1.5rem;
             border: none;
             box-shadow: 0 1px 2px rgba(0,0,0,0.1);
-            font-family: 'JetBrains Mono', monospace;
         }
         .btn-equals:hover {
             background: #1565c0;
@@ -212,7 +203,6 @@
             background: #fee2e2;
             color: #b91c1c;
             border: 1px solid #ffcdd2;
-            font-family: 'JetBrains Mono', monospace;
             font-weight: 600;
         }
         .btn-clear:hover {
@@ -225,7 +215,6 @@
             border: 1px solid #e2e8f0;
             font-size: 1rem;
             font-weight: 600;
-            font-family: 'JetBrains Mono', monospace;
         }
         .btn-func:hover {
             background: #e6edf4;
@@ -251,7 +240,6 @@
             letter-spacing: -0.2px;
         }
 
-        /* استجابة للشاشات الصغيرة (مع الحفاظ على الشريط العلوي) */
         @media (max-width: 640px) {
             .top-bar {
                 padding: 0 16px;
@@ -313,11 +301,10 @@
 </head>
 <body>
 
-<!-- الشريط العلوي الأسود (مطابق تمامًا للنسخة الأولى) -->
-<header class="top-bar" role="banner" aria-label="شريط التطبيق العلوي">
+<header class="top-bar" role="banner" aria-label="Application top bar">
     <div class="logo-container" title="swrh restudio logo">
         <img src="https://i.postimg.cc/90CzkZm3/swrh-restudio.png"
-             alt="شعار swrh restudio"
+             alt="swrh restudio logo"
              loading="eager"
              onerror="this.style.display='none'">
     </div>
@@ -326,48 +313,41 @@
 
 <main class="main-content">
     <div class="calculator-wrapper">
-        <!-- شاشة العرض - مع خط JetBrains -->
         <div class="display-area">
             <div class="expression-line" id="expressionLine">&nbsp;</div>
             <div class="result-line" id="resultLine">0</div>
         </div>
 
-        <!-- شبكة الأزرار (بسيطة، مع أيقونات Google + خط JetBrains) -->
         <div class="buttons-grid">
-            <!-- صف الدوال -->
             <button class="btn-func" data-action="func" data-value="sqrt(">√</button>
             <button class="btn-func" data-action="func" data-value="^">xʸ</button>
             <button class="btn-func" data-action="func" data-value="(">(</button>
             <button class="btn-func" data-action="func" data-value=")">)</button>
 
-            <!-- صف المسح والحذف والنسبة -->
-            <button class="btn-clear" data-action="clear" title="مسح الكل">AC</button>
-            <button class="btn-clear" data-action="backspace" title="حذف">
+            <button class="btn-clear" data-action="clear" title="Clear all">AC</button>
+            <button class="btn-clear" data-action="backspace" title="Delete">
                 <span class="material-icons">backspace</span>
             </button>
-            <button class="btn-func" data-action="func" data-value="%">%</button>
             <button class="btn-operator" data-action="operator" data-value="/">÷</button>
+            <button class="btn-operator" data-action="operator" data-value="*">×</button>
 
-            <!-- أرقام + ضرب -->
             <button class="btn-number" data-action="number" data-value="7">7</button>
             <button class="btn-number" data-action="number" data-value="8">8</button>
             <button class="btn-number" data-action="number" data-value="9">9</button>
-            <button class="btn-operator" data-action="operator" data-value="*">×</button>
+            <button class="btn-operator" data-action="operator" data-value="-">−</button>
 
             <button class="btn-number" data-action="number" data-value="4">4</button>
             <button class="btn-number" data-action="number" data-value="5">5</button>
             <button class="btn-number" data-action="number" data-value="6">6</button>
-            <button class="btn-operator" data-action="operator" data-value="-">−</button>
+            <button class="btn-operator" data-action="operator" data-value="+">+</button>
 
             <button class="btn-number" data-action="number" data-value="1">1</button>
             <button class="btn-number" data-action="number" data-value="2">2</button>
             <button class="btn-number" data-action="number" data-value="3">3</button>
-            <button class="btn-operator" data-action="operator" data-value="+">+</button>
-
-            <!-- صفر، نقطة، يساوي -->
             <button class="btn-number btn-zero" data-action="number" data-value="0">0</button>
+
             <button class="btn-number" data-action="number" data-value=".">.</button>
-            <button class="btn-equals" data-action="equals" title="يساوي">=</button>
+            <button class="btn-equals" data-action="equals" title="Equals">=</button>
         </div>
 
         <div class="footer-hint">
@@ -378,12 +358,10 @@
 
 <script>
     (function() {
-        // عناصر DOM
         const expressionLine = document.getElementById('expressionLine');
         const resultLine = document.getElementById('resultLine');
         const allButtons = document.querySelectorAll('button');
 
-        // حالة الحاسبة
         let currentExpression = '';
         let justEvaluated = false;
         let lastResult = null;
@@ -396,37 +374,21 @@
             if (isError) resultLine.classList.add('error');
         }
 
-        // معالجة النسبة المئوية بشكل متقدم قبل التقييم
-        function preprocessPercent(expr) {
-            // تحويل النسب المئوية مثل 50% إلى 0.5، لكن مع مراعاة العمليات: 50%+20% تعالج بحذر
-            // نقوم باستبدال أي رقم عشري متبوع بـ % إلى (العدد/100)
-            let processed = expr.replace(/(\d+(?:\.\d+)?)%/g, '($1/100)');
-            // حالات خاصة مثل .5% أو (5+3)% يتم التعامل معها بشكل مباشر
-            processed = processed.replace(/(\d+\.?\d*)%/g, '($1/100)');
-            return processed;
-        }
-
         function evaluateExpression(expr) {
             if (!expr || expr.trim() === '') return { result: '0', error: false };
             try {
-                // معالجة علامة القسمة الظاهرة ÷ إلى /  و × إلى * للتأكد من التوافق
                 let fixedExpr = expr.replace(/÷/g, '/').replace(/×/g, '*');
-                // معالجة النسبة المئوية قبل التقييم
-                fixedExpr = preprocessPercent(fixedExpr);
-                
                 const result = math.evaluate(fixedExpr);
                 if (result === undefined || result === null || (typeof result === 'number' && !isFinite(result))) {
-                    return { result: (typeof result === 'number' && !isFinite(result)) ? (result === Infinity ? '∞' : '-∞') : 'خطأ', error: true };
+                    return { result: 'Error', error: true };
                 }
                 let formattedResult;
                 if (typeof result === 'number') {
                     if (Number.isInteger(result)) formattedResult = result.toString();
                     else {
-                        // التقريب الذكي ومنع الأرقام الطويلة جدًا
                         formattedResult = parseFloat(result.toPrecision(12)).toString();
                         if (Math.abs(result) > 1e14 || (Math.abs(result) < 1e-12 && result !== 0))
                             formattedResult = result.toExponential(8);
-                        // إزالة اللواحق .0000001 الغير ضرورية
                         if (formattedResult.includes('.') && formattedResult.endsWith('0')) {
                             formattedResult = formattedResult.replace(/\.?0+$/, '');
                         }
@@ -434,20 +396,7 @@
                 } else formattedResult = result.toString();
                 return { result: formattedResult, error: false, rawResult: result };
             } catch (err) {
-                // محاولة تصحيح بسيط: محاولة تقييم كتعبير جبري مع math.js مرة أخرى لو كان هناك خطأ في النسبة
-                try {
-                    let fallbackExpr = expr.replace(/÷/g, '/').replace(/×/g, '*');
-                    // تجربة إزالة الأقواس غير المغلقة إذا كان الخطأ بسبب بناء الجملة
-                    const fallbackResult = math.evaluate(fallbackExpr);
-                    let formattedRes = fallbackResult.toString();
-                    if (typeof fallbackResult === 'number') {
-                        if (Number.isInteger(fallbackResult)) formattedRes = fallbackResult.toString();
-                        else formattedRes = parseFloat(fallbackResult.toPrecision(12)).toString();
-                    }
-                    return { result: formattedRes, error: false, rawResult: fallbackResult };
-                } catch (fallbackErr) {
-                    return { result: 'خطأ', error: true };
-                }
+                return { result: 'Error', error: true };
             }
         }
 
@@ -473,24 +422,27 @@
                 justEvaluated = false;
                 lastResult = null;
                 clearActiveOperator();
-            } else {
-                if (value === '0' && (currentExpression === '' || currentExpression === '0')) {
-                    if (currentExpression === '0') return;
-                }
-                if (value === '.') {
-                    // تجنب تكرار النقطة في الرقم الحالي
-                    const lastNumberMatch = currentExpression.match(/([\d.]+)$/);
-                    if (lastNumberMatch && lastNumberMatch[1].includes('.')) return;
-                    if (currentExpression === '' || currentExpression === '0') {
-                        currentExpression = '0.';
-                        justEvaluated = false;
-                        updateLiveResult();
-                        return;
-                    }
-                }
-                if (currentExpression === '0' && value !== '.') currentExpression = value;
-                else currentExpression += value;
+                updateLiveResult();
+                return;
             }
+            
+            if (value === '.' && currentExpression === '') {
+                currentExpression = '0.';
+                updateLiveResult();
+                return;
+            }
+            
+            if (value === '.' && currentExpression !== '') {
+                const lastNumberMatch = currentExpression.match(/(\d+\.?\d*)$/);
+                if (lastNumberMatch && lastNumberMatch[1].includes('.')) return;
+            }
+            
+            if (currentExpression === '0' && value !== '.') {
+                currentExpression = value;
+            } else {
+                currentExpression += value;
+            }
+            
             clearActiveOperator();
             updateLiveResult();
         }
@@ -505,13 +457,12 @@
                 else return;
             } else {
                 const lastChar = currentExpression.slice(-1);
-                const operators = ['+', '-', '*', '/', '^', '%'];
-                if (operators.includes(lastChar) && value !== '-') {
+                const operators = ['+', '-', '*', '/', '^'];
+                if (operators.includes(lastChar)) {
+                    if (value === '-' && lastChar === '-') {
+                        return;
+                    }
                     currentExpression = currentExpression.slice(0, -1) + value;
-                } else if (lastChar === '-' && operators.includes(currentExpression.slice(-2, -1)) && value !== '-') {
-                    currentExpression = currentExpression.slice(0, -2) + value;
-                } else if (lastChar === '(' && value !== '-' && value !== '+') {
-                    return;
                 } else {
                     currentExpression += value;
                 }
@@ -535,18 +486,20 @@
                 justEvaluated = false;
                 lastResult = null;
             } else {
-                if (currentExpression === '' || currentExpression === '0') {
-                    if (value === 'sqrt(' || value === '(') currentExpression = value;
-                    else if (value === '^') currentExpression = '0^';
-                    else if (value === '%') currentExpression = '0%';
-                    else currentExpression += value;
-                } else {
-                    // إذا أضفنا ^ أو sqrt نتعامل معها مباشرة
-                    if (value === 'sqrt(' && /[\d\)]$/.test(currentExpression)) {
+                if (value === 'sqrt(') {
+                    if (currentExpression !== '' && !justEvaluated && /[\d\)]$/.test(currentExpression)) {
                         currentExpression += '*sqrt(';
                     } else {
-                        currentExpression += value;
+                        currentExpression += 'sqrt(';
                     }
+                } else if (value === '^') {
+                    if (currentExpression === '' || currentExpression === '0') {
+                        currentExpression = '0^';
+                    } else {
+                        currentExpression += '^';
+                    }
+                } else {
+                    currentExpression += value;
                 }
             }
             clearActiveOperator();
@@ -604,8 +557,10 @@
             const btn = event.currentTarget;
             const action = btn.dataset.action;
             const value = btn.dataset.value;
+            
             btn.style.transform = 'scale(0.96)';
             setTimeout(() => { btn.style.transform = ''; }, 100);
+            
             switch(action) {
                 case 'number': handleNumber(value); break;
                 case 'operator': handleOperator(value, btn); break;
@@ -620,8 +575,9 @@
         function handleKeyDown(event) {
             const key = event.key;
             let targetBtn = null;
-            const preventKeys = ['Enter', 'Backspace', 'Delete', '/', '*', '-', '+', '=', '^', '%', '(', ')', '.'];
+            const preventKeys = ['Enter', 'Backspace', 'Delete', '/', '*', '-', '+', '=', '^', '(', ')', '.'];
             if (preventKeys.includes(key)) event.preventDefault();
+            
             switch(key) {
                 case '0': case '1': case '2': case '3': case '4': case '5': case '6': case '7': case '8': case '9':
                     handleNumber(key);
@@ -632,7 +588,6 @@
                 case '-': handleOperator('-', document.querySelector('[data-action="operator"][data-value="-"]')); targetBtn = document.querySelector('[data-action="operator"][data-value="-"]'); break;
                 case '*': handleOperator('*', document.querySelector('[data-action="operator"][data-value="*"]')); targetBtn = document.querySelector('[data-action="operator"][data-value="*"]'); break;
                 case '/': handleOperator('/', document.querySelector('[data-action="operator"][data-value="/"]')); targetBtn = document.querySelector('[data-action="operator"][data-value="/"]'); break;
-                case '%': handleFunc('%'); targetBtn = document.querySelector('[data-action="func"][data-value="%"]'); break;
                 case '^': handleFunc('^'); targetBtn = document.querySelector('[data-action="func"][data-value="^"]'); break;
                 case '(': handleFunc('('); targetBtn = document.querySelector('[data-action="func"][data-value="("]'); break;
                 case ')': handleFunc(')'); targetBtn = document.querySelector('[data-action="func"][data-value=")"]'); break;
@@ -647,6 +602,7 @@
                     } break;
                 default: return;
             }
+            
             if (targetBtn) {
                 targetBtn.style.transform = 'scale(0.94)';
                 setTimeout(() => { if(targetBtn) targetBtn.style.transform = ''; }, 100);
